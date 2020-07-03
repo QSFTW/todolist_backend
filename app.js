@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
     extended:true
 }));
 
-app.use('/todo', todoRouter)
+
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
@@ -21,6 +21,7 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
+app.use('/todo', todoRouter)
 
 
 // connect to mongoDB

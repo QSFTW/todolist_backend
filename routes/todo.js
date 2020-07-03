@@ -24,11 +24,9 @@ router.get('/delete/:id', async (req, res)=>{
 })
 
 router.post('/add', async (req, res)=>{
-    data.unshift({id: idCount, Subject: req.body.Subject, Description: req.body.Description})
-    idCount++
-    const todo = new Todo({
-        Subject: req.body.Subject,
-        Description: req.body.Description
+    todo = new Todo({
+        Subject : req.body.Subject,
+        Description : req.body.Description
     })
     try{
         const savedTodo = await todo.save()
