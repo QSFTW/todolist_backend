@@ -3,9 +3,10 @@ const express = require('express')
 const Todo = require('../models/todoModel')
 const router = express.Router();
 
+
 router.get('/getAll', async (req, res)=>{
     try{
-        const todos = await Todo.find()
+        const todos = await Todo.find().sort({date:-1})
         res.status(200).send(todos)
     } catch (err) {
         res.json({message: err})
